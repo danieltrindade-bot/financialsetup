@@ -68,10 +68,10 @@ export const integrationFlow = [
 ];
 
 export const kpis = [
-  { name: "DRE", enabled: true },
-  { name: "Fluxo de caixa", enabled: true },
-  { name: "Ciclo financeiro", enabled: true },
-  { name: "Margem operacional", enabled: true },
+  { name: "DRE", enabled: true, value: "R$ 2.4M", subtitle: "Receita mensal" },
+  { name: "Fluxo de caixa", enabled: true, value: "90 dias", subtitle: "Projeção" },
+  { name: "Ciclo financeiro", enabled: true, value: "32 dias", subtitle: "Ciclo operacional" },
+  { name: "Margem operacional", enabled: true, value: "18.5%", subtitle: "Margem líquida" },
 ];
 
 export const executiveCards = [

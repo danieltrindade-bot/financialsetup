@@ -37,9 +37,12 @@ const Index = () => {
   const CurrentSlideComponent = slides[currentSlide];
 
   return (
-    <div className="flex h-screen w-screen flex-col overflow-hidden bg-background">
+    <div className="relative flex h-screen w-screen flex-col overflow-hidden bg-background">
+      {/* Subtle gradient overlay */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-accent/[0.02] via-transparent to-accent/[0.01]" />
+      
       <TimelineProgress currentSlide={currentSlide} />
-      <div className="flex flex-1 overflow-hidden">
+      <div className="relative flex flex-1 overflow-hidden">
         <SlideContainer slideKey={currentSlide} direction={direction}>
           <CurrentSlideComponent />
         </SlideContainer>

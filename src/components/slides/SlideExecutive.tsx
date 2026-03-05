@@ -2,21 +2,29 @@ import { motion } from "framer-motion";
 import AnimatedElement from "../presentation/AnimatedElement";
 import { executiveCards } from "@/data/setupData";
 
-const colors = [
-  "bg-accent/10 text-accent",
-  "bg-critical/10 text-critical",
-  "bg-success/10 text-success",
-  "bg-accent/10 text-accent",
-  "bg-warning/10 text-warning",
+const accentColors = [
+  "border-l-accent",
+  "border-l-critical",
+  "border-l-success",
+  "border-l-accent",
+  "border-l-warning",
+];
+
+const bgColors = [
+  "bg-accent/5",
+  "bg-critical/5",
+  "bg-success/5",
+  "bg-accent/5",
+  "bg-warning/5",
 ];
 
 export default function SlideExecutive() {
   return (
-    <div className="flex w-full max-w-5xl flex-col items-center gap-10">
+    <div className="flex w-full flex-col items-center gap-12">
       <AnimatedElement>
         <div className="text-center">
-          <h2 className="text-4xl font-bold text-foreground">Documento Executivo</h2>
-          <p className="mt-2 text-lg text-muted-foreground">Visão consolidada do setup financeiro</p>
+          <h2 className="text-5xl font-bold tracking-tight text-foreground">Documento Executivo</h2>
+          <p className="mt-3 text-lg text-muted-foreground">Visão consolidada do setup financeiro</p>
         </div>
       </AnimatedElement>
 
@@ -24,17 +32,17 @@ export default function SlideExecutive() {
         {executiveCards.map((card, i) => (
           <motion.div
             key={card.number}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 + i * 0.1 }}
-            whileHover={{ y: -4 }}
-            className={`flex flex-col gap-3 rounded-2xl border border-border bg-card p-6 ${i >= 3 ? "lg:col-span-1" : ""}`}
+            transition={{ delay: 0.2 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+            whileHover={{ y: -4, transition: { duration: 0.2 } }}
+            className={`glass-card premium-shadow border-l-4 ${accentColors[i]} flex flex-col gap-4 p-7 ${i >= 3 ? "lg:col-span-1" : ""}`}
           >
-            <div className={`flex h-8 w-8 items-center justify-center rounded-lg text-sm font-bold ${colors[i]}`}>
+            <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${bgColors[i]} text-sm font-bold text-foreground`}>
               {card.number}
             </div>
             <h3 className="text-lg font-bold text-foreground">{card.title}</h3>
-            <p className="text-sm text-muted-foreground">{card.description}</p>
+            <p className="text-sm leading-relaxed text-muted-foreground">{card.description}</p>
           </motion.div>
         ))}
       </div>
