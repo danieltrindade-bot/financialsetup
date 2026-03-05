@@ -5,35 +5,35 @@ import { FileText } from "lucide-react";
 
 export default function SlideDiagnostic() {
   return (
-    <div className="flex w-full max-w-5xl flex-col items-center gap-10">
+    <div className="flex w-full flex-col items-center gap-12">
       <AnimatedElement>
         <div className="text-center">
-          <span className="text-sm font-semibold uppercase tracking-widest text-accent">Fase 1 — Entrega</span>
-          <h2 className="mt-2 text-4xl font-bold text-foreground">Relatório de Diagnóstico</h2>
+          <span className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Diagnóstico</span>
+          <h2 className="mt-3 text-5xl font-bold tracking-tight text-foreground">Relatório de Diagnóstico</h2>
+          <p className="mt-3 text-lg text-muted-foreground">Maturidade financeira da empresa</p>
         </div>
       </AnimatedElement>
 
       <div className="grid w-full grid-cols-1 gap-8 lg:grid-cols-2">
         <AnimatedElement delay={0.2}>
-          <div className="rounded-2xl border border-border bg-card p-6">
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-              Maturidade Financeira
-            </h3>
-            <ResponsiveContainer width="100%" height={320}>
+          <div className="glass-card premium-shadow p-8">
+            <ResponsiveContainer width="100%" height={340}>
               <RadarChart data={radarData}>
                 <PolarGrid stroke="hsl(var(--border))" />
                 <PolarAngleAxis
                   dataKey="subject"
-                  tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 12 }}
+                  tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 12, fontWeight: 500 }}
                 />
                 <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} axisLine={false} />
                 <Radar
-                  name="Atual"
+                  name="Maturidade"
                   dataKey="value"
-                  stroke="hsl(239, 84%, 67%)"
-                  fill="hsl(239, 84%, 67%)"
-                  fillOpacity={0.2}
+                  stroke="hsl(var(--accent))"
+                  fill="hsl(var(--accent))"
+                  fillOpacity={0.15}
                   strokeWidth={2}
+                  animationBegin={400}
+                  animationDuration={1200}
                 />
               </RadarChart>
             </ResponsiveContainer>
@@ -41,14 +41,24 @@ export default function SlideDiagnostic() {
         </AnimatedElement>
 
         <AnimatedElement delay={0.3}>
-          <div className="flex h-full flex-col items-center justify-center rounded-2xl border border-accent/20 bg-accent/5 p-8">
-            <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-accent/10">
-              <FileText className="h-8 w-8 text-accent" />
+          <div className="glass-card premium-shadow flex flex-col items-start gap-6 p-8">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-accent/10">
+              <FileText className="h-7 w-7 text-accent" />
             </div>
-            <h3 className="text-xl font-bold text-foreground">Relatório de Diagnóstico Financeiro</h3>
-            <p className="mt-3 max-w-sm text-center text-sm text-muted-foreground">
-              Documento executivo com mapeamento completo da maturidade financeira, riscos identificados e recomendações prioritárias.
-            </p>
+            <div>
+              <h3 className="text-2xl font-bold text-foreground">Relatório de Diagnóstico Financeiro</h3>
+              <p className="mt-3 leading-relaxed text-muted-foreground">
+                Documento executivo com análise completa da maturidade financeira, mapeamento de processos
+                e recomendações de estruturação.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {radarData.map((item) => (
+                <span key={item.subject} className="rounded-full bg-muted px-3 py-1.5 text-xs font-medium text-muted-foreground">
+                  {item.subject}: {item.value}%
+                </span>
+              ))}
+            </div>
           </div>
         </AnimatedElement>
       </div>

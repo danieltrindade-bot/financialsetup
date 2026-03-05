@@ -1,56 +1,56 @@
+import { motion } from "framer-motion";
 import AnimatedElement from "../presentation/AnimatedElement";
 import { diagnosticAreas, diagnosticDeliverables } from "@/data/setupData";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
-import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 
 export default function SlidePhase1() {
   return (
-    <div className="flex w-full max-w-5xl flex-col items-center gap-10">
+    <div className="flex w-full flex-col items-center gap-12">
       <AnimatedElement>
         <div className="text-center">
-          <span className="text-sm font-semibold uppercase tracking-widest text-accent">Fase 1</span>
-          <h2 className="mt-2 text-4xl font-bold text-foreground">Financial Dataflow Mapping</h2>
-          <p className="mt-2 text-lg text-muted-foreground">Entender como o dinheiro circula na empresa</p>
+          <span className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">Fase 1</span>
+          <h2 className="mt-3 text-5xl font-bold tracking-tight text-foreground">Financial Dataflow Mapping</h2>
+          <p className="mt-3 text-lg text-muted-foreground">Entender como o dinheiro circula na empresa</p>
         </div>
       </AnimatedElement>
 
       <div className="grid w-full grid-cols-1 gap-8 lg:grid-cols-2">
         <AnimatedElement delay={0.2}>
-          <div className="rounded-2xl border border-border bg-card p-6">
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-              Áreas de Diagnóstico
-            </h3>
-            <ResponsiveContainer width="100%" height={280}>
+          <div className="glass-card premium-shadow p-8">
+            <ResponsiveContainer width="100%" height={320}>
               <PieChart>
                 <Pie
                   data={diagnosticAreas}
                   cx="50%"
                   cy="50%"
-                  innerRadius={60}
-                  outerRadius={110}
+                  innerRadius={70}
+                  outerRadius={120}
                   paddingAngle={3}
                   dataKey="value"
+                  animationBegin={400}
+                  animationDuration={1200}
                 >
                   {diagnosticAreas.map((entry, i) => (
-                    <Cell key={i} fill={entry.color} />
+                    <Cell key={i} fill={entry.color} strokeWidth={0} />
                   ))}
                 </Pie>
                 <Tooltip
                   contentStyle={{
                     background: "hsl(var(--card))",
                     border: "1px solid hsl(var(--border))",
-                    borderRadius: "8px",
-                    fontSize: "12px",
+                    borderRadius: "12px",
+                    fontSize: "13px",
+                    boxShadow: "0 4px 24px -4px hsl(var(--foreground) / 0.08)",
                   }}
                 />
               </PieChart>
             </ResponsiveContainer>
-            <div className="mt-4 flex flex-wrap gap-3">
-              {diagnosticAreas.map((a) => (
-                <div key={a.name} className="flex items-center gap-1.5">
-                  <div className="h-2.5 w-2.5 rounded-full" style={{ background: a.color }} />
-                  <span className="text-xs text-muted-foreground">{a.name}</span>
+            <div className="mt-4 flex flex-wrap justify-center gap-3">
+              {diagnosticAreas.map((area) => (
+                <div key={area.name} className="flex items-center gap-1.5">
+                  <div className="h-2 w-2 rounded-full" style={{ background: area.color }} />
+                  <span className="text-xs text-muted-foreground">{area.name}</span>
                 </div>
               ))}
             </div>
@@ -58,21 +58,19 @@ export default function SlidePhase1() {
         </AnimatedElement>
 
         <AnimatedElement delay={0.3}>
-          <div className="rounded-2xl border border-border bg-card p-6">
-            <h3 className="mb-6 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-              Entregas
-            </h3>
-            <div className="flex flex-col gap-4">
-              {diagnosticDeliverables.map((d, i) => (
+          <div className="glass-card premium-shadow p-8">
+            <h3 className="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Entregas</h3>
+            <div className="flex flex-col gap-3">
+              {diagnosticDeliverables.map((item, i) => (
                 <motion.div
-                  key={d}
+                  key={item}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.4 + i * 0.1 }}
-                  className="flex items-center gap-3 rounded-lg bg-muted/50 p-3"
+                  transition={{ delay: 0.4 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                  className="flex items-center gap-3 rounded-xl bg-muted/40 p-4 transition-colors hover:bg-muted/60"
                 >
-                  <CheckCircle className="h-5 w-5 shrink-0 text-success" />
-                  <span className="text-sm font-medium text-foreground">{d}</span>
+                  <CheckCircle className="h-4 w-4 shrink-0 text-success" />
+                  <span className="text-sm font-medium text-foreground">{item}</span>
                 </motion.div>
               ))}
             </div>
