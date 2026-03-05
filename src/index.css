@@ -37,6 +37,9 @@
     --critical: 0 84% 60%;
     --critical-foreground: 0 0% 100%;
 
+    --highlight: 119 86% 69%;
+    --highlight-foreground: 222.2 84% 4.9%;
+
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 239 84% 67%;
@@ -76,6 +79,9 @@
     --warning-foreground: 222.2 84% 4.9%;
     --critical: 0 84% 60%;
     --critical-foreground: 0 0% 100%;
+
+    --highlight: 119 86% 69%;
+    --highlight-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 239 84% 67%;
@@ -118,6 +124,9 @@
   }
   .gradient-accent {
     background-image: linear-gradient(135deg, hsl(var(--accent)), hsl(239 84% 55%));
+  }
+  .gradient-highlight {
+    background-image: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--highlight)));
   }
   .pulse-glow {
     animation: pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;

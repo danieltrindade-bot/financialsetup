@@ -44,8 +44,8 @@ export default function SlideGoLive() {
                 <p className="mt-0.5 text-xs text-muted-foreground">{kpi.subtitle}</p>
               </div>
               <div className="flex items-center gap-1.5">
-                <div className="h-2 w-2 rounded-full bg-success pulse-glow" />
-                <span className="text-xs font-semibold text-success">Ativo</span>
+                <div className="h-2 w-2 rounded-full bg-highlight pulse-glow" />
+                <span className="text-xs font-semibold text-highlight">Ativo</span>
               </div>
             </motion.div>
           );

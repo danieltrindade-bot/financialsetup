@@ -69,7 +69,7 @@ export default function SlideSuccess() {
           <motion.button
             whileHover={{ scale: 1.03, y: -2 }}
             whileTap={{ scale: 0.98 }}
-            className="gradient-accent premium-shadow flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold text-accent-foreground transition-shadow hover:premium-shadow-lg"
+            className="gradient-highlight premium-shadow flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold text-highlight-foreground transition-shadow hover:premium-shadow-lg"
           >
             Iniciar transformação financeira
             <ArrowRight className="h-4 w-4" />

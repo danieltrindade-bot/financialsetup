@@ -36,7 +36,7 @@ export default function TimelineProgress({ currentSlide }: TimelineProgressProps
                   isCurrent
                     ? "gradient-accent text-accent-foreground pulse-glow"
                     : isCompleted
-                    ? "bg-accent text-accent-foreground"
+                    ? "bg-highlight text-highlight-foreground"
                     : "bg-muted text-muted-foreground"
                 }`}
                 animate={{ scale: isCurrent ? 1.1 : 1 }}
