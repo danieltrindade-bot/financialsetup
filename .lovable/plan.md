@@ -1,78 +1,31 @@
 
 
-# UI Premium Refinement — Apple/Stripe Style
+# Add #6CF269 Green Accent Color
 
 ## Overview
-Elevate all 13 slides and shared components to premium visual quality with refined typography, spacing, animations, gradients, card styles, and a polished final slide with CTA.
+Introduce the vibrant green `#6CF269` (HSL ~119 86% 69%) as a secondary highlight color used sparingly across the presentation for visual interest without disrupting the existing Navy/Indigo harmony.
+
+## Color Strategy
+Use `#6CF269` only in small, intentional touches — status indicators, badges, accent borders, icon backgrounds — never as a dominant color. It complements the existing indigo accent and provides an energetic "alive" feel.
 
 ## Changes
 
-### 1. Global Styles (`src/index.css`)
-- Add subtle gradient background instead of flat color
-- Add glass-morphism card utility class
-- Add premium shadow utilities
-- Refine font sizing scale for presentation context
+### 1. `src/index.css` — Add new CSS variable
+- Add `--highlight: 119 86% 69%` to `:root` and dark mode
 
-### 2. AnimatedElement Enhancement
-- Add stagger children support for sequential reveal within groups
-- Smoother easing curves
+### 2. `tailwind.config.ts` — Register highlight color
+- Add `highlight: { DEFAULT, foreground }` to the colors config
 
-### 3. SlideContainer
-- Increase padding, max-width to 1200px consistently
-- Add subtle background gradient per slide area
+### 3. Targeted slide updates (subtle touches only)
 
-### 4. TimelineProgress — Premium Redesign
-- Larger, more elegant phase indicators with icons
-- Completed phases get checkmark
-- Current phase has glowing accent dot with pulse animation
-- Future phases at reduced opacity
-- Better typography and spacing
+- **SlideHero**: Use `#6CF269` for one or two card icon backgrounds (e.g., the "Integração com Oxy" ⚡ card) instead of indigo
+- **SlideTimeline**: Use the green for the connecting line gradient endpoint or completed phase checkmarks
+- **SlideGoLive**: Replace the success green pulse dots with `#6CF269` for the "Ativo" status indicators
+- **SlideTransformation**: Use `#6CF269` as the accent color on the "Depois" (After) column — border-left or heading color
+- **SlideDelight**: Use it for the milestone number circles or connecting line gradient
+- **SlideSuccess**: Use `#6CF269` for the CTA button gradient blend (indigo → green) or as the pie chart's "Conciliação padronizada" segment color
+- **TimelineProgress**: Completed phase dots get a subtle `#6CF269` ring or fill
 
-### 5. Navigation — Refined
-- Pill-shaped container with glass background
-- Centered layout with slide counter
-- Keyboard shortcut hints
-- Smoother hover states
-
-### 6. All Slide Components — Systematic Upgrades
-
-**Typography**: Titles to 48-64px (`text-5xl`/`text-6xl`), subtitles 24px, body 16-18px. More letter-spacing on labels.
-
-**Cards**: `rounded-2xl shadow-sm hover:shadow-lg` with smooth transitions, subtle border, white backgrounds. Hover lifts cards 6px with accent shadow.
-
-**Spacing**: More generous gaps (gap-12 to gap-16 between sections).
-
-**Specific slides**:
-- **SlideHero**: Add subtle gradient text on title, larger cards with icon backgrounds, more dramatic entrance animation
-- **SlideTimeline**: Add phase icons, connecting gradient line instead of plain border
-- **SlidePhase1/2/3**: Larger chart containers, refined legends with better spacing
-- **SlideDiagnostic**: Radar chart with gradient fill, document card with subtle shimmer
-- **SlidePhase2**: Progress bars with gradient fills and animated percentage counters
-- **SlideStructurePlan**: Table rows as individual cards instead of flat table
-- **SlideGoLive**: Dashboard mock with large KPI numbers (e.g., "R$ 2.4M"), status indicators with pulse
-- **SlideExecutive**: Cards with left accent border color-coded
-- **SlideTransformation**: Larger contrast between Before/After with more dramatic visual separation
-- **SlideGovernance**: Cards with subtle icon backgrounds, checklist feel
-- **SlideDelight**: Timeline with gradient connecting line, milestone dots with glow
-- **SlideSuccess**: Animated counter numbers, refined donut chart
-
-### 7. New Final Slide Enhancement (SlideSuccess → add CTA section)
-- Hero-style closing: "De financeiro operacional para inteligência financeira."
-- Subtitle: "O2 Financial Intelligence Setup"
-- Accent gradient CTA button: "Iniciar transformação financeira"
-- Subtle dashboard visual in background
-
-### 8. Data Updates (`setupData.ts`)
-- Add mock KPI values for Go-Live dashboard (numbers like "R$ 2.4M", "32%")
-- Add gradient color pairs for charts
-
-## File Changes Summary
-- `src/index.css` — Add premium utility classes
-- `src/components/presentation/AnimatedElement.tsx` — Minor easing refinement
-- `src/components/presentation/TimelineProgress.tsx` — Premium redesign
-- `src/components/presentation/Navigation.tsx` — Glass pill style
-- `src/components/presentation/SlideContainer.tsx` — Max-width + padding
-- All 13 `src/components/slides/Slide*.tsx` — Typography, cards, spacing, animations
-- `src/data/setupData.ts` — Add KPI mock values
-- `src/pages/Index.tsx` — Background gradient wrapper
+### 4. Utility class
+- Add `.gradient-highlight` utility: `linear-gradient(135deg, hsl(var(--accent)), #6CF269)` for gradient accents
 
