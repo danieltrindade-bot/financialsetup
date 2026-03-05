@@ -49,8 +49,8 @@ export default function SlideTransformation() {
         </div>
 
         <AnimatedElement delay={0.3}>
-          <div className="glass-card h-full border-success/20 bg-success/[0.03] p-10">
-            <h3 className="mb-8 text-xl font-bold text-success">Depois</h3>
+          <div className="glass-card h-full border-highlight/20 bg-highlight/[0.03] p-10">
+            <h3 className="mb-8 text-xl font-bold text-highlight">Depois</h3>
             <div className="flex flex-col gap-5">
               {transformationAfter.map((item, i) => (
                 <motion.div
@@ -60,8 +60,8 @@ export default function SlideTransformation() {
                   transition={{ delay: 0.4 + i * 0.12, ease: [0.22, 1, 0.36, 1] }}
                   className="flex items-center gap-4"
                 >
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-success/10">
-                    <Check className="h-4 w-4 text-success" />
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-highlight/10">
+                    <Check className="h-4 w-4 text-highlight" />
                   </div>
                   <span className="text-sm font-medium text-foreground">{item}</span>
                 </motion.div>

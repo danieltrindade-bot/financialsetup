@@ -27,14 +27,14 @@ export default function SlideDelight() {
           >
             {/* Gradient connecting line */}
             {i < customerDelightMoments.length - 1 && (
-              <div className="absolute left-6 top-[5.5rem] h-full w-px bg-gradient-to-b from-accent/40 to-accent/5" />
+              <div className="absolute left-6 top-[5.5rem] h-full w-px bg-gradient-to-b from-highlight/40 to-highlight/5" />
             )}
             
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.4 + i * 0.2, type: "spring", stiffness: 200 }}
-              className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl gradient-accent text-base font-bold text-accent-foreground premium-shadow"
+              className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl gradient-highlight text-base font-bold text-highlight-foreground premium-shadow"
             >
               {moment.number}
               {/* Glow ring */}

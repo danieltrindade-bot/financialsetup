@@ -28,7 +28,7 @@ export default function SlideTimeline() {
             >
               {/* Gradient vertical line */}
               {i < timelinePhases.length - 1 && (
-                <div className="absolute left-6 top-[5rem] h-full w-px bg-gradient-to-b from-accent/30 to-border" />
+                <div className="absolute left-6 top-[5rem] h-full w-px bg-gradient-to-b from-highlight/40 to-border" />
               )}
 
               {/* Circle with icon */}

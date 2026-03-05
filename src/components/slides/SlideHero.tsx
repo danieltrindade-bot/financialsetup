@@ -42,8 +42,8 @@ export default function SlideHero() {
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
               className="glass-card premium-shadow flex flex-col items-start gap-4 p-6 transition-shadow duration-300"
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10">
-                <Icon className="h-5 w-5 text-accent" />
+              <div className={`flex h-11 w-11 items-center justify-center rounded-xl ${card.icon === 'Zap' ? 'bg-highlight/15' : 'bg-accent/10'}`}>
+                <Icon className={`h-5 w-5 ${card.icon === 'Zap' ? 'text-highlight' : 'text-accent'}`} />
               </div>
               <span className="text-sm font-semibold leading-snug text-foreground">{card.title}</span>
             </motion.div>
